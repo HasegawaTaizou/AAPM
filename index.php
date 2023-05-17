@@ -104,12 +104,9 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 	 else if ($contributionPeriod == "18 MESES") {
 		$interval = new DateInterval('P1Y6M');
 	}
-
-	// if (strtoupper($contributionPeriod) == "RDS") {
-	// 	$interval = new DateInterval('P1Y2M');
-	// } else if (strtoupper($contributionPeriod) == "DS") {
-	// 	$interval = new DateInterval('P3Y7M');
-	// }
+	else if ($contributionPeriod == "24 MESES") {
+		$interval = new DateInterval('P2Y0M');
+	}
 
 	$expirationDate = new DateTime();
 	$expirationDate = $expirationDate->add($interval);
@@ -187,7 +184,7 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 
 			// User name and password for RADIUS
 			$user = $cpf;
-			$password = $userName;
+			$password = $passwordRegister;
 
 			if (!$statement = $db->prepare("SELECT username FROM radcheck WHERE username = ?"))
 				dbError($db, showErrorText('databaseRegisterErrorMessage_string') . " (2) :");
@@ -343,9 +340,6 @@ function SignUp()
 							<option class="contribution-period__default" value="">
 								Período de contribuição
 							</option>
-							<option class="contribution-period" value="<?php echo $contributionPeriod = "3 MESES"; ?>">
-								3 Meses
-							</option>
 							<option class="contribution-period" value="<?php echo $contributionPeriod = "6 MESES"; ?>">
 								6 Meses
 							</option>
@@ -354,6 +348,9 @@ function SignUp()
 							</option>
 							<option class="contribution-period" value="<?php echo $contributionPeriod = "18 MESES"; ?>">
 								18 Meses
+							</option>
+							<option class="contribution-period" value="<?php echo $contributionPeriod = "24 MESES"; ?>">
+								24 Meses
 							</option>
 						</select>
 						<span class="contribution-period__error">Selecione um período de contribuição!</span>
