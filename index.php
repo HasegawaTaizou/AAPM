@@ -334,12 +334,12 @@ function SignUp()
 					</div>
 					<div class="password-register-container">
 						<label for="password-register" class="password-register__name">Senha</label>
-						<input type="password" class="password-register__input"  id="password-register" name="password-register" value="<?php echo $passwordRegister; ?>" />
+						<input type="password" class="password-register__input"  id="password_register" name="password_register" value="<?php echo $passwordRegister; ?>" />
 						<span class="password-register__error">Preencha a senha!</span>
 					</div>
 					<div class="select-container">
 						<label for="contribution-period" class="contribution-period__name">Período de contribuição</label>
-						<select class="contributions-period-container" name="contribution-period">
+						<select class="contributions-period-container" name="contribution_period">
 							<option class="contribution-period__default" value="">
 								Período de contribuição
 							</option>
