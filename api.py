@@ -22,7 +22,7 @@ def exemplo():
     data = {
        "authorizedkeys": "",
        "cert": [],
-       "descr": "Full Name do Usuário",
+       "descr": f"Nome: {usernameData} - Expira em: {expiresData}",
        "disabled": "false",
        "expires": expiresData,
        "ipsecpsk": "",
