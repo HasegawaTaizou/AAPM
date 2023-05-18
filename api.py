@@ -36,11 +36,17 @@ def exemplo():
     if response.status_code == 200:
         # Requisição POST bem-sucedida
         #print('POST request successful')
-        return jsonify({'message': f'POST request successful! {response.status_code}'})
+        # return jsonify({'message': f'POST request successful! {response.status_code}'})
+
+        #Empty because it appears on website
+        return jsonify({'message': ''})
     else:
         # Tratar erros na requisição POST
         #print('Error making POST request:', response.status_code)
-        return jsonify({'message': f'Error making POST request: {response.status_code}'})
+        # return jsonify({'message': f'Error making POST request: {response.status_code}'})
+        
+        #Empty because it appears on website
+        return jsonify({'message': ''})
 
 # Executar o servidor Flask
 if __name__ == '__main__':
