@@ -120,6 +120,24 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 	//Remove the CPF from captiveportal-contribuintes.txt
 	deleteCpf($cpf);
 
+	$url = 'http://localhost:5000/api/exemplo'; // URL da API Python
+
+	$data = array(
+ 	   'username' => $cpf,
+ 	   'password' => $passwordRegister,
+	   'expires' => $expirationDateFormated
+	);
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+	curl_close($ch);
+
+	echo $response;
+
 	$db = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 	if (mysqli_connect_errno()) {
 		if (DEBUG == true)
