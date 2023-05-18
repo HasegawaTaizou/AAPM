@@ -22,12 +22,12 @@ def exemplo():
     data = {
        "authorizedkeys": "",
        "cert": [],
-       "descr": "",
+       "descr": "Full Name do Usuário",
        "disabled": "false",
        "expires": expiresData,
        "ipsecpsk": "",
        "password": passwordData,
-       "priv": [],
+       "priv": ["user-services-captiveportal-login"],
        "username": usernameData
     }
 
