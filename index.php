@@ -123,7 +123,7 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 	//Remove the CPF from captiveportal-contribuintes.txt
 	deleteCpf($cpf);
 
-	$url = 'http://localhost:5000/api/exemplo'; // URL da API Python
+	$url = 'http://localhost:5000/api/user'; // URL da API Python
 
 	$data = array(
  	   'username' => $cpf,

@@ -12,8 +12,8 @@ api_url = 'https://192.168.1.1/api/v1/user'
 username = 'admin'
 password = 'senai127'
 
-@app.route('/api/exemplo', methods=['POST'])
-def exemplo():
+@app.route('/api/user', methods=['POST'])
+def createUser():
     usernameData = request.form.get('username') 
     passwordData = request.form.get('password') 
     expiresData = request.form.get('expires') 
