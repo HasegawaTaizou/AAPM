@@ -17,12 +17,13 @@ def exemplo():
     usernameData = request.form.get('username') 
     passwordData = request.form.get('password') 
     expiresData = request.form.get('expires') 
+    expiresVisualData = request.form.get('expires-visual') 
 
     # Dados a serem enviados no POST no formato JSON
     data = {
        "authorizedkeys": "",
        "cert": [],
-       "descr": f"Nome: {usernameData} - Expira em: {expiresData}",
+       "descr": f"Nome: {usernameData} - Expira em: {expiresVisualData}",
        "disabled": "false",
        "expires": expiresData,
        "ipsecpsk": "",
@@ -34,19 +35,9 @@ def exemplo():
     response = requests.post(api_url, auth=(username, password), json=data, verify=False)
 
     if response.status_code == 200:
-        # Requisição POST bem-sucedida
-        #print('POST request successful')
-        # return jsonify({'message': f'POST request successful! {response.status_code}'})
-
-        #Empty because it appears on website
-        return jsonify({'message': ''})
+        return jsonify({'message': f'POST request successful! {response.status_code}'})
     else:
-        # Tratar erros na requisição POST
-        #print('Error making POST request:', response.status_code)
-        # return jsonify({'message': f'Error making POST request: {response.status_code}'})
-        
-        #Empty because it appears on website
-        return jsonify({'message': ''})
+        return jsonify({'message': f'Error making POST request: {response.status_code}'})
 
 # Executar o servidor Flask
 if __name__ == '__main__':

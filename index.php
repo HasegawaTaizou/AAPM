@@ -110,7 +110,10 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 
 	$expirationDate = new DateTime();
 	$expirationDate = $expirationDate->add($interval);
+	#Self Registration date
 	$expirationDateFormated = $expirationDate->format('m/d/Y');
+	#User description date
+	$expirationDateVisualFormated = $expirationDate->format('d/m/Y');
 	$expirationDate = $expirationDate->format('Y-m-d');
 
 
@@ -125,7 +128,8 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 	$data = array(
  	   'username' => $cpf,
  	   'password' => $passwordRegister,
-	   'expires' => $expirationDateFormated
+	   'expires' => $expirationDateFormated,
+	   'expires-visual' => $expirationDateVisualFormated
 	);
 
 	$ch = curl_init();
@@ -135,8 +139,6 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response = curl_exec($ch);
 	curl_close($ch);
-
-	echo $response;
 
 	$db = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 	if (mysqli_connect_errno()) {
