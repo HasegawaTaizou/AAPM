@@ -14,6 +14,7 @@ password = 'senai127'
 
 @app.route('/api/user', methods=['POST'])
 def createUser():
+    fullNameData = request.form.get('full-name') 
     usernameData = request.form.get('username') 
     passwordData = request.form.get('password') 
     expiresData = request.form.get('expires') 
@@ -23,7 +24,7 @@ def createUser():
     data = {
        "authorizedkeys": "",
        "cert": [],
-       "descr": f"Nome: {usernameData} - Expira em: {expiresVisualData}",
+       "descr": f"Nome: {fullNameData} - Expira em: {expiresVisualData}",
        "disabled": "false",
        "expires": expiresData,
        "ipsecpsk": "",

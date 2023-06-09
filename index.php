@@ -116,17 +116,18 @@ if (isset($_POST["terms_of_use"]) && isset($_POST["connect"])) {
 	$expirationDateVisualFormated = $expirationDate->format('d/m/Y');
 	$expirationDate = $expirationDate->format('Y-m-d');
 
-
-	//Store user data in text file
-	// writeUser($cpf, $userName, $course, $expirationDateFormated);
-
 	//Remove the CPF from captiveportal-contribuintes.txt
 	deleteCpf($cpf);
 
-	$url = 'http://localhost:5000/api/user'; // URL da API Python
+	$url = 'http://localhost:5000/api/user'; // Python API URL
+
+	//Convert only the first letter to uppercase
+	$userName = strtolower($userName);
+    $userName = ucwords($userName);
 
 	$data = array(
  	   'username' => $cpf,
+ 	   'full-name' => $userName,
  	   'password' => $passwordRegister,
 	   'expires' => $expirationDateFormated,
 	   'expires-visual' => $expirationDateVisualFormated
@@ -280,7 +281,7 @@ function Login()
 			<input name="auth_user" type="hidden" value="<?php echo $user; ?>">
 			<input name="auth_pass" type="hidden" value="<?php echo $password; ?>">
 			<input name="zone" type="hidden" value="$PORTAL_ZONE$">
-			<input name="redirurl" type="hidden" value="https://www.google.com/">
+			<input name="redirurl" type="hidden" value="https://www.sp.senai.br/">
 			<input id="submitbtn" name="accept" type="submit" value="Continue">
 		</form>
 		<script type="text/javascript">
