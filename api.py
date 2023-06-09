@@ -20,7 +20,7 @@ def createUser():
     expiresData = request.form.get('expires') 
     expiresVisualData = request.form.get('expires-visual') 
 
-    # Dados a serem enviados no POST no formato JSON
+    # Data to be sent in POST in JSON format
     data = {
        "authorizedkeys": "",
        "cert": [],
@@ -40,6 +40,6 @@ def createUser():
     else:
         return jsonify({'message': f'Error making POST request: {response.status_code}'})
 
-# Executar o servidor Flask
+# Run the Flask Server
 if __name__ == '__main__':
     app.run()
