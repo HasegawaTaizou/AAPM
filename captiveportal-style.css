@@ -65,7 +65,12 @@ main {
   min-height: 75vh;
 }
 
+#enregistrement {
+  display: none;
+}
+
 .signUp__title {
+  display: none;
   text-align: center;
 }
 
@@ -296,12 +301,14 @@ main {
 }
 
 .another-option {
+  display: none;
   text-align: center;
   margin: 8px 0px;
 }
 
 .voucher {
-  display: flex;
+  /* display: flex; */
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -368,11 +375,11 @@ footer {
 
 /* LOGIN PAGE STYLE */
 #login {
-  display: none;
+  display: block;
 }
 
 .login__title {
-  display: none;
+  display: block;
   text-align: center;
 }
 
